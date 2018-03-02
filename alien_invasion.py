@@ -25,9 +25,7 @@ def run_game():
 	while turnning:
 		GF.update_screen(ai_stngs,screen, ai_ship)
 
-		for event in pygame.event.get():
-			if event.type == pygame.QUIT:
-				turnning = False
+		GF.check_events()
 
 
 		# Make the most recently drawn screen visible.
