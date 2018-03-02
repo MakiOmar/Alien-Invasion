@@ -1,4 +1,5 @@
 import pygame
+import sys
 def update_screen(ai_stngs,screen, ai_ship):
 	# Redraw the screen during each pass through the loop.
 	screen.fill(ai_stngs.bg_color)
@@ -9,4 +10,6 @@ def update_screen(ai_stngs,screen, ai_ship):
 def check_events():
 	for event in pygame.event.get():
 			if event.type == pygame.QUIT:
-				turnning = False
+				sys.exit()
+				return
+

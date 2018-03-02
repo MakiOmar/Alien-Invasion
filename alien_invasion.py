@@ -21,8 +21,7 @@ def run_game():
 	#instantiate the ship objec
 	ai_ship = ship.Ship(ai_stngs, screen)
 
-	turnning = True
-	while turnning:
+	while True:
 		GF.update_screen(ai_stngs,screen, ai_ship)
 
 		GF.check_events()
