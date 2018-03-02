@@ -33,13 +33,7 @@ def run_game():
 		ai_ship.update()
 
 		 
-		bullets.update()
-
-		# Get rid of bullets that have disappeared.
-		for bullet in bullets.copy():
-			if bullet.rect.bottom <= 0:
-				bullets.remove(bullet)
-			print bullets
+		GF.update_bullets(bullets)
 
 		GF.update_screen(ai_stngs,screen, ai_ship, bullets)
 		# Make the most recently drawn screen visible.

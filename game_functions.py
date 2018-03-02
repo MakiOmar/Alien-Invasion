@@ -45,5 +45,12 @@ def check_events(settings, screen, ship, bullets):
 
 		check_keyup_event(settings, event)
 			
-
+def update_bullets(bullets):
+	"""Update position of bullets and get rid of old bullets."""
+	# Update bullet positions.
+	bullets.update()
+	# Get rid of bullets that have disappeared.
+	for bullet in bullets.copy():
+		if bullet.rect.bottom <= 0:
+			bullets.remove(bullet)
 
