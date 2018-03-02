@@ -1,5 +1,6 @@
 import pygame
 import settings
+import ship
 def run_game():
 	#@ai_stngs : Alien Invaders Settings
 	ai_stngs = settings.Settings()
@@ -16,9 +17,13 @@ def run_game():
 	#game caption
 	ai_stngs.ai_caption("Alien Invasion")
 
+	#instantiate the ship objec
+	ai_ship = ship.Ship(ai_stngs, screen)
+
 	turnning = True
 	while turnning:
 		screen.fill(ai_stngs.bg_color)
+		ai_ship.blitme()
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				turnning = False
