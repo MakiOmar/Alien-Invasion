@@ -11,7 +11,7 @@ def run_game():
 	pygame.init()
 
 	#game icon
-	ai_stngs.ai_icon("images/alien.png")
+	ai_stngs.ai_icon("images/alien.bmp")
 
 	#build screen
 	screen = ai_stngs.ai_screen_size()
