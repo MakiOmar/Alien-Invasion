@@ -1,0 +1,30 @@
+import pygame
+import settings
+def run_game():
+	#@ai_stngs : Alien Invaders Settings
+	ai_stngs = settings.Settings()
+
+	# Initialize game and create a screen object.
+	pygame.init()
+
+	#game icon
+	ai_stngs.ai_icon("images/alien.png")
+
+	#build screen
+	screen = ai_stngs.ai_screen_size()
+
+	#game caption
+	ai_stngs.ai_caption("Alien Invasion")
+
+	turnning = True
+	while turnning:
+		screen.fill(ai_stngs.bg_color)
+		for event in pygame.event.get():
+			if event.type == pygame.QUIT:
+				turnning = False
+
+
+		# Make the most recently drawn screen visible.
+		pygame.display.flip()
+
+run_game()
