@@ -19,8 +19,8 @@ class Ship(object):
 		self.screen.blit(self.image, self.rect)
 
 	def update(self, ai_settings):
-		if ai_settings.move_right:
+		if ai_settings.move_right and self.rect.right <= self.screen_rect.right:
 			self.rect.centerx += 1
 
-		if ai_settings.move_left:
+		if ai_settings.move_left and self.rect.left >= 0:
 			self.rect.centerx -= 1
