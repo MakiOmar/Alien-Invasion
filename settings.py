@@ -17,6 +17,10 @@ class Settings(object):
 		self.bullet_color = 3, 139, 96
 		self.bullets_allowed = 3
 
+		#Ship movement flags
+		self.move_right = False
+		self.move_left = False
+
 	def ai_icon (self, ico):
 		icon = pygame.display.set_icon(pygame.image.load(ico))
 		return icon
