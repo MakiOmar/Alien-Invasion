@@ -2,6 +2,7 @@ import pygame
 import settings
 import ship
 import game_functions as GF
+from pygame.sprite import Group
 def run_game():
 	#@ai_stngs : Alien Invaders Settings
 	ai_stngs = settings.Settings()
@@ -21,10 +22,13 @@ def run_game():
 	#instantiate the ship objec
 	ai_ship = ship.Ship(ai_stngs, screen)
 
-	while True:
-		GF.update_screen(ai_stngs,screen, ai_ship)
+	# Make a group to store bullets in.
+	bullets = Group()
 
-		GF.check_events(ai_stngs)
+	while True:
+		GF.update_screen(ai_stngs,screen, ai_ship, bullets)
+
+		GF.check_events(ai_stngs, screen, ai_ship, bullets)
 
 		#ship movement
 		ai_ship.update()
