@@ -8,7 +8,7 @@ class Settings(object):
 		self.scrn_hght = 480
 		self.bg_color = (230, 230, 230)
 		# Ship settings
- 		self.ship_speed_factor = 1.5
+ 		self.ship_speed_factor = 0.5
 
  		# Bullet settings
 		self.bullet_speed_factor = 0.1
