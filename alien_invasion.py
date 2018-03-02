@@ -1,6 +1,7 @@
 import pygame
 import settings
 import ship
+import game_functions as GF
 def run_game():
 	#@ai_stngs : Alien Invaders Settings
 	ai_stngs = settings.Settings()
@@ -22,8 +23,8 @@ def run_game():
 
 	turnning = True
 	while turnning:
-		screen.fill(ai_stngs.bg_color)
-		ai_ship.blitme()
+		GF.update_screen(ai_stngs,screen, ai_ship)
+
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				turnning = False
