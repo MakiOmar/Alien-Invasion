@@ -16,8 +16,14 @@ def check_events(settings):
 				if event.key == pygame.K_RIGHT:
 					settings.move_right = True
 
+				elif event.key == pygame.K_LEFT:
+					settings.move_left = True
+
 			if event.type == pygame.KEYUP:
 				if event.key == pygame.K_RIGHT:
 					settings.move_right = False
+				
+				if event.key == pygame.K_LEFT:
+					settings.move_left = False
 
 

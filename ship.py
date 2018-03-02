@@ -21,3 +21,6 @@ class Ship(object):
 	def update(self, ai_settings):
 		if ai_settings.move_right:
 			self.rect.centerx += 1
+
+		if ai_settings.move_left:
+			self.rect.centerx -= 1
