@@ -27,7 +27,10 @@ def run_game():
 		GF.check_events(ai_stngs)
 
 		#ship movement
-		ai_ship.update(ai_stngs)
+		ai_ship.update()
+
+		#charge ship with bullets
+		bullets.update()
 
 
 		# Make the most recently drawn screen visible.
