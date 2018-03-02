@@ -26,6 +26,9 @@ def run_game():
 
 		GF.check_events(ai_stngs)
 
+		#ship movement
+		ai_ship.update(ai_stngs)
+
 
 		# Make the most recently drawn screen visible.
 		pygame.display.flip()

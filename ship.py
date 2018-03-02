@@ -18,5 +18,6 @@ class Ship(object):
 		"""Draw the ship at its current location."""
 		self.screen.blit(self.image, self.rect)
 
-	def update(self):
-		print ""
+	def update(self, ai_settings):
+		if ai_settings.move_right:
+			self.rect.centerx += 1
