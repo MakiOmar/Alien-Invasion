@@ -24,7 +24,7 @@ def run_game():
 	while True:
 		GF.update_screen(ai_stngs,screen, ai_ship)
 
-		GF.check_events()
+		GF.check_events(ai_stngs)
 
 
 		# Make the most recently drawn screen visible.
