@@ -17,6 +17,9 @@ class Settings(object):
 		self.bullet_color = 3, 139, 96
 		self.bullets_allowed = 3
 
+		# Alien settings
+ 		self.alien_speed_factor = 1
+
 		#Ship movement flags
 		self.move_right = False
 		self.move_left = False
