@@ -1,12 +1,15 @@
 import pygame
 import sys
 from bullet import Bullet
-def update_screen(ai_stngs,screen, ai_ship, bullets):
+def update_screen(ai_stngs,screen, ai_ship, bullets, alien):
 	# Redraw the screen during each pass through the loop.
 	screen.fill(ai_stngs.bg_color)
 
 	#Draw spaceship
 	ai_ship.blitme()
+
+	#draw Alien
+	alien.blitme()
 	#Check bullets limit to the value in settings
 
 	# Redraw all bullets behind ship and aliens.

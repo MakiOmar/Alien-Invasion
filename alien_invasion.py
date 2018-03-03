@@ -18,7 +18,7 @@ def run_game():
 	screen = ai_stngs.ai_screen_size()
 
 	# Make an alien.
- 	ai_alien = Alien(ai_settings, screen)
+ 	ai_alien = Alien(ai_stngs, screen)
 
 	#game caption
 	ai_stngs.ai_caption("Alien Invasion")
