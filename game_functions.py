@@ -63,6 +63,10 @@ def update_bullets(bullets):
 		if bullet.rect.bottom <= 0:
 			bullets.remove(bullet)
 
+def update_aliens(aliens):
+	"""Update the postions of all aliens in the fleet."""
+ 	aliens.update()
+ 	
 def get_number_rows(ai_settings, ship_height, alien_height):
 	"""Determine the number of rows of aliens that fit on the screen."""
 	available_space_y = (ai_settings.scrn_hght - (3 * alien_height) - ship_height)
