@@ -3,6 +3,7 @@ class Settings(object):
 	"""A class to store all settings for Alien Invasion."""
 	def __init__(self):
 		"""Initialize the game's settings."""
+		self.game_initialize = pygame.init()
 		# Screen settings
 		self.scrn_wdth = 1024
 		self.scrn_hght = 640
@@ -30,6 +31,10 @@ class Settings(object):
 		self.move_right = False
 		self.move_left = False
 
+		#sound settings
+		self.NO_channels = pygame.mixer.set_num_channels(64)
+ 		self.volume = pygame.mixer.music.set_volume(2)
+
 	def ai_icon (self, ico):
 		icon = pygame.display.set_icon(pygame.image.load(ico))
 		return icon
@@ -40,3 +45,10 @@ class Settings(object):
 
 	def ai_caption(self, ai_caption):
 		pygame.display.set_caption(ai_caption)
+
+	def main_sound(self):
+ 		return pygame.mixer.Channel(0).play(pygame.mixer.Sound("sounds/game_music.wav"))
+ 		
+
+ 	def bullet_sound(self):
+ 		return pygame.mixer.Channel(1).play(pygame.mixer.Sound("sounds/shoot.wav"))

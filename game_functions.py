@@ -22,10 +22,7 @@ def fire_bullets(settings, screen, ship, bullets):
 			# Create a new bullet and add it to the bullets group.
 			new_bullet = Bullet(settings, screen, ship)
 			bullets.add(new_bullet)
-			pygame.mixer.music.load("sounds/shoot.wav")
-			pygame.mixer.music.set_volume(2)
-			pygame.mixer.music.play()
-
+			settings.bullet_sound()
 def check_keydown_event(settings, event, screen, ship, bullets):
 	if event.type == pygame.KEYDOWN:
 		if event.key == pygame.K_RIGHT:

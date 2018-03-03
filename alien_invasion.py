@@ -3,13 +3,11 @@ import settings
 import ship
 import game_functions as GF
 from pygame.sprite import Group
-import time
+import sounds
 def run_game():
+
 	#@ai_stngs : Alien Invaders Settings
 	ai_stngs = settings.Settings()
-
-	# Initialize game and create a screen object.
-	pygame.init()
 
 	#game icon
 	ai_stngs.ai_icon("images/alien.bmp")
@@ -32,10 +30,8 @@ def run_game():
 	# Create the fleet of aliens.
 	GF.create_fleet(ai_stngs, screen, ai_ship, aliens)
 
-	pygame.mixer.music.load("sounds/game_music.wav")
-	pygame.mixer.set_num_channels(64)
-	pygame.mixer.music.set_volume(2)
-	pygame.mixer.music.play(-1)
+
+	ai_stngs.main_sound()
 	while True:
 
 		GF.check_events(ai_stngs, screen, ai_ship, bullets)
