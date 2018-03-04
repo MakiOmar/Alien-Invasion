@@ -37,14 +37,14 @@ def run_game():
 	while True:
 
 		GF.check_events(ai_stngs, screen, ai_ship, bullets)
+		if stats.game_active:
+			#ship movement
+			ai_ship.update()
 
-		#ship movement
-		ai_ship.update()
+			 
+			GF.update_bullets(ai_stngs, screen, ai_ship, aliens, bullets)
 
-		 
-		GF.update_bullets(ai_stngs, screen, ai_ship, aliens, bullets)
-
-		GF.update_aliens(ai_stngs, aliens, ai_ship, stats, screen, bullets)
+			GF.update_aliens(ai_stngs, aliens, ai_ship, stats, screen, bullets)
 
 		GF.update_screen(ai_stngs, screen, ai_ship, bullets, aliens)
 		# Make the most recently drawn screen visible.
