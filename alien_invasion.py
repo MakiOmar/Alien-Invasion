@@ -3,6 +3,7 @@ import settings
 import ship
 import game_functions as GF
 from pygame.sprite import Group
+from game_stats import GameStats
 def run_game():
 	#@ai_stngs : Alien Invaders Settings
 	ai_stngs = settings.Settings()
@@ -18,6 +19,9 @@ def run_game():
 
 	#game caption
 	ai_stngs.ai_caption("Alien Invasion")
+
+	# Create an instance to store game statistics.
+	stats = GameStats(ai_settings)
 
 	#instantiate the ship objec
 	ai_ship = ship.Ship(ai_stngs, screen)
