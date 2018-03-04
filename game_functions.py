@@ -2,6 +2,7 @@ import pygame
 import sys
 from bullet import Bullet
 from alien import Alien
+from time import sleep
 def update_screen(ai_stngs,screen, ai_ship, bullets, aliens):
 	# Redraw the screen during each pass through the loop.
 	screen.fill(ai_stngs.bg_color)
@@ -130,3 +131,19 @@ def create_fleet(ai_settings, screen,ship, aliens):
 		for alien_number in range(number_aliens_x):
 			# Create an alien and place it in the row.
 			create_alien(ai_settings, screen, aliens, alien_number, row_number)
+
+def ship_hit(ai_settings, stats, screen, ship, aliens, bullets):
+	"""Respond to ship being hit by alien."""
+	# Decrement ships_left.
+	stats.ships_left -= 1
+
+	# Empty the list of aliens and bullets.
+	aliens.empty()
+	bullets.empty()
+
+	# Create a new fleet and center the ship.
+	create_fleet(ai_settings, screen, ship, aliens)
+	ship.center_ship()
+
+	# Pause.
+	sleep(0.5)
