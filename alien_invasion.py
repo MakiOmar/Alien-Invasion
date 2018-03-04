@@ -21,7 +21,7 @@ def run_game():
 	ai_stngs.ai_caption("Alien Invasion")
 
 	# Create an instance to store game statistics.
-	stats = GameStats(ai_settings)
+	stats = GameStats(ai_stngs)
 
 	#instantiate the ship objec
 	ai_ship = ship.Ship(ai_stngs, screen)
