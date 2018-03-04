@@ -116,6 +116,9 @@ def update_aliens(ai_settings, aliens, ship, stats, screen, bullets):
 	if pygame.sprite.spritecollideany(ship, aliens):
 		ship_hit(ai_settings, stats, screen, ship, aliens, bullets)
 
+	# Look for aliens hitting the bottom of the screen.
+	check_aliens_bottom(ai_settings, stats, screen, ship, aliens, bullets)
+
 def create_fleet(ai_settings, screen,ship, aliens):
 	"""Create a full fleet of aliens."""
 	# Create an alien and find the number of aliens in a row.
