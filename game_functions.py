@@ -114,7 +114,7 @@ def update_aliens(ai_settings, aliens, ship, stats, screen, bullets):
 	aliens.update()
 	# Look for alien-ship collisions.
 	if pygame.sprite.spritecollideany(ship, aliens):
-		print("Ship hit!!!")
+		ship_hit(ai_settings, stats, screen, ship, aliens, bullets)
 
 def create_fleet(ai_settings, screen,ship, aliens):
 	"""Create a full fleet of aliens."""
