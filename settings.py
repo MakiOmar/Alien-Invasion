@@ -30,6 +30,9 @@ class Settings(object):
 		self.move_right = False
 		self.move_left = False
 
+		#ships left
+		self.ship_limit = 3
+
 	def ai_icon (self, ico):
 		icon = pygame.display.set_icon(pygame.image.load(ico))
 		return icon
