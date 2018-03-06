@@ -3,6 +3,7 @@ import sys
 from bullet import Bullet
 from alien import Alien
 from time import sleep
+from pygame.sprite import Group
 def update_screen(ai_stngs,screen, ai_ship, bullets, aliens):
 	# Redraw the screen during each pass through the loop.
 	screen.fill(ai_stngs.bg_color)
@@ -22,7 +23,7 @@ def fire_bullets(settings, screen, ship, bullets):
 			# Create a new bullet and add it to the bullets group.
 			new_bullet = Bullet(settings, screen, ship)
 			bullets.add(new_bullet)
-
+			settings.bullet_sound()
 def check_keydown_event(settings, event, screen, ship, bullets):
 	if event.type == pygame.KEYDOWN:
 		if event.key == pygame.K_RIGHT:
