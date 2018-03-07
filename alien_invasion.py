@@ -5,6 +5,7 @@ import game_functions as GF
 from pygame.sprite import Group
 from game_stats import GameStats
 import sounds
+from button import Button
 def run_game():
 
 	#@ai_stngs : Alien Invaders Settings
@@ -18,6 +19,9 @@ def run_game():
 
 	#game caption
 	ai_stngs.ai_caption("Alien Invasion")
+
+	# Make the Play button.
+	play_button = Button(ai_stngs, screen, "Play")
 
 	# Create an instance to store game statistics.
 	stats = GameStats(ai_stngs)
@@ -35,7 +39,7 @@ def run_game():
 	GF.create_fleet(ai_stngs, screen, ai_ship, aliens)
 
 
-	ai_stngs.main_sound()
+	ai_stngs.main_sound(stats)
 	while True:
 
 		GF.check_events(ai_stngs, screen, ai_ship, bullets)
@@ -48,7 +52,7 @@ def run_game():
 
 			GF.update_aliens(ai_stngs, aliens, ai_ship, stats, screen, bullets)
 
-		GF.update_screen(ai_stngs, screen, ai_ship, bullets, aliens)
+		GF.update_screen(ai_stngs, screen, ai_ship, bullets, aliens,stats, play_button)
 		# Make the most recently drawn screen visible.
 		pygame.display.flip()
 

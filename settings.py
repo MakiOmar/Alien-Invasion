@@ -49,8 +49,9 @@ class Settings(object):
 	def ai_caption(self, ai_caption):
 		pygame.display.set_caption(ai_caption)
 
-	def main_sound(self):
- 		return pygame.mixer.Channel(0).play(pygame.mixer.Sound("sounds/game_music.wav"))
+	def main_sound(self, stats):
+		if stats.game_active:
+ 			return pygame.mixer.Channel(0).play(pygame.mixer.Sound("sounds/game_music.wav"))
  		
 
  	def bullet_sound(self):
