@@ -41,7 +41,7 @@ def run_game():
 
 	ai_stngs.main_sound(stats)
 	while True:
-		GF.check_events(ai_stngs, screen, ai_ship, bullets)
+		GF.check_events(ai_stngs, screen, ai_ship, bullets,stats, play_button)
 		if stats.game_active:
 			#ship movement
 			ai_ship.update()
