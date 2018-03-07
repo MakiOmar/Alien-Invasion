@@ -59,6 +59,11 @@ def check_events(settings, screen, ship, bullets):
 		check_keydown_event(settings, event, screen, ship, bullets)
 
 		check_keyup_event(settings, event)
+		
+def check_play_button(stats, play_button, mouse_x, mouse_y):
+	"""Start a new game when the player clicks Play."""
+	if play_button.rect.collidepoint(mouse_x, mouse_y):
+		stats.game_active = True
 			
 def update_bullets(ai_settings, screen, ship, aliens, bullets):
 	"""Update position of bullets and get rid of old bullets."""
