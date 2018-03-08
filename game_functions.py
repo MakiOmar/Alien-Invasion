@@ -26,13 +26,13 @@ def update_screen(ai_stngs,screen, ai_ship, bullets, aliens,stats, play_button,s
 	if not stats.game_active:
 		play_button.draw_button()
 
-def fire_bullets(settings, screen, ship, bullets):
+def fire_bullets(settings, screen, ship, bullets,stats):
 	if len(bullets) < settings.bullets_allowed:
 			# Create a new bullet and add it to the bullets group.
 			new_bullet = Bullet(settings, screen, ship)
 			bullets.add(new_bullet)
-			settings.bullet_sound()
-def check_keydown_event(settings, event, screen, ship, bullets):
+			settings.bullet_sound(stats)
+def check_keydown_event(settings, event, screen, ship, bullets,stats):
 	if event.type == pygame.KEYDOWN:
 		if event.key == pygame.K_RIGHT:
 			settings.move_right = True
@@ -41,7 +41,7 @@ def check_keydown_event(settings, event, screen, ship, bullets):
 			settings.move_left = True
 
 		elif event.key == pygame.K_SPACE:
-			fire_bullets(settings, screen, ship, bullets)
+			fire_bullets(settings, screen, ship, bullets,stats)
 		elif  event.key == pygame.K_q:
 			sys.exit()
 			return
@@ -63,7 +63,7 @@ def check_events(settings, screen, ship,aliens, bullets, stats, play_button,sb):
 			mouse_x, mouse_y = pygame.mouse.get_pos()
 			check_play_button(settings, screen,ship, aliens,bullets,stats, play_button, mouse_x, mouse_y,sb)
 
-		check_keydown_event(settings, event, screen, ship, bullets)
+		check_keydown_event(settings, event, screen, ship, bullets,stats)
 
 		check_keyup_event(settings, event)
 

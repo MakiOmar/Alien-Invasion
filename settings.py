@@ -6,7 +6,7 @@ class Settings(object):
 		self.game_initialize = pygame.init()
 		# Screen settings
 		self.scrn_wdth = 1024
-		self.scrn_hght = 640
+		self.scrn_hght = 720
 		self.bg_color = (230, 230, 230)
 		# Ship settings
  		self.ship_speed_factor = 1.5
@@ -64,8 +64,9 @@ class Settings(object):
 			return pygame.mixer.Channel(0).play(pygame.mixer.Sound("sounds/game_music.wav"))
  		
 
- 	def bullet_sound(self):
- 		return pygame.mixer.Channel(1).play(pygame.mixer.Sound("sounds/shoot.wav"))
+ 	def bullet_sound(self, stats):
+ 		if stats.game_active:
+ 			return pygame.mixer.Channel(1).play(pygame.mixer.Sound("sounds/shoot.wav"))
 
  	def initialize_dynamic_settings(self):
 		"""Initialize settings that change throughout the game."""
