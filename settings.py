@@ -66,6 +66,12 @@ class Settings(object):
 		self.ship_speed_factor = 1.5
 		self.bullet_speed_factor = 3
 		self.alien_speed_factor = 1
-		
+
 		# fleet_direction of 1 represents right; -1 represents left.
 		self.fleet_direction = 1
+
+	def increase_speed(self):
+		"""Increase speed settings."""
+		self.ship_speed_factor *= self.speedup_scale
+		self.bullet_speed_factor *= self.speedup_scale
+		self.alien_speed_factor *= self.speedup_scale
