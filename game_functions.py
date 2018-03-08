@@ -79,6 +79,9 @@ def check_play_button(ai_settings, screen,ship, aliens,bullets,stats, play_butto
 		# Create a new fleet and center the ship.
 		create_fleet(ai_settings, screen, ship, aliens)
 		ship.center_ship()
+
+		# Hide the mouse cursor.
+ 		pygame.mouse.set_visible(False)
 		
 def update_bullets(ai_settings, screen, ship, aliens, bullets):
 	"""Update position of bullets and get rid of old bullets."""
@@ -178,6 +181,7 @@ def ship_hit(ai_settings, stats, screen, ship, aliens, bullets):
 		sleep(0.5)
 	else:
 		stats.game_active = False
+		pygame.mouse.set_visible(True)
 
 def check_aliens_bottom(ai_settings, stats, screen, ship, aliens, bullets):
 	"""Check if any aliens have reached the bottom of the screen."""
