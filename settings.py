@@ -42,6 +42,9 @@ class Settings(object):
 		self.speedup_scale = 1.1
 		self.initialize_dynamic_settings()
 
+		# Scoring
+ 		self.alien_points = 50
+
 	def ai_icon (self, ico):
 		icon = pygame.display.set_icon(pygame.image.load(ico))
 		return icon
