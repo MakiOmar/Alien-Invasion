@@ -45,6 +45,9 @@ class Settings(object):
 		# Scoring
  		self.alien_points = 50
 
+ 		# How quickly the alien point values increase
+ 		self.score_scale = 1.5
+
 	def ai_icon (self, ico):
 		icon = pygame.display.set_icon(pygame.image.load(ico))
 		return icon
