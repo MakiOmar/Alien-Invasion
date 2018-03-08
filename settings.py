@@ -38,6 +38,10 @@ class Settings(object):
 		self.NO_channels = pygame.mixer.set_num_channels(64)
  		self.volume = pygame.mixer.music.set_volume(2)
 
+ 		# How quickly the game speeds up
+		self.speedup_scale = 1.1
+		self.initialize_dynamic_settings()
+
 	def ai_icon (self, ico):
 		icon = pygame.display.set_icon(pygame.image.load(ico))
 		return icon
