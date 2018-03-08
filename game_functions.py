@@ -88,7 +88,6 @@ def check_play_button(ai_settings, screen,ship, aliens,bullets,stats, play_butto
 		aliens.empty()
 		bullets.empty()
 
-		ai_settings.main_sound(stats)
 		# Create a new fleet and center the ship.
 		create_fleet(ai_settings, screen, ship, aliens)
 		ship.center_ship()
@@ -130,7 +129,7 @@ def check_bullet_alien_collisions(ai_settings, screen, ship, aliens, bullets,sta
 
 def get_number_rows(ai_settings, ship_height, alien_height):
 	"""Determine the number of rows of aliens that fit on the screen."""
-	available_space_y = (ai_settings.scrn_hght - (3 * alien_height) - ship_height)
+	available_space_y = (ai_settings.scrn_hght - (5 * alien_height) - ship_height)
 	number_rows = int(available_space_y / (2 * alien_height))
 	return number_rows
 
@@ -145,7 +144,7 @@ def create_alien(ai_settings, screen, aliens, alien_number, row_number):
 	alien = Alien(ai_settings, screen)
 	alien.x = alien.rect.width + 2 * alien.rect.width * alien_number
 	alien.rect.x = alien.x
-	alien.rect.y = alien.rect.height + 2 * alien.rect.height * row_number
+	alien.rect.y = alien.rect.height*2 + 2 * alien.rect.height * row_number
 	aliens.add(alien)
 
 def check_fleet_edges(ai_settings, aliens):

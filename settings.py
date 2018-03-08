@@ -5,8 +5,8 @@ class Settings(object):
 		"""Initialize the game's settings."""
 		self.game_initialize = pygame.init()
 		# Screen settings
-		self.scrn_wdth = 1024
-		self.scrn_hght = 720
+		self.scrn_wdth = 1300
+		self.scrn_hght = 640
 		self.bg_color = (230, 230, 230)
 		# Ship settings
  		self.ship_speed_factor = 1.5
@@ -22,7 +22,7 @@ class Settings(object):
  		self.alien_speed_factor = 1
 
  		#Fleet speed
- 		self.fleet_drop_speed = 10
+ 		self.fleet_drop_speed = 100
  		
 		# fleet_direction of 1 represents right; -1 represents left.
 		self.fleet_direction = 1
@@ -60,9 +60,9 @@ class Settings(object):
 		pygame.display.set_caption(ai_caption)
 
 	def main_sound(self, stats):
-		if stats.game_active:
-			return pygame.mixer.Channel(0).play(pygame.mixer.Sound("sounds/game_music.wav"))
- 		
+			voice = pygame.mixer.Channel(0)
+			sound = pygame.mixer.Sound("sounds/game_music.wav")
+			voice.play(sound)
 
  	def bullet_sound(self, stats):
  		if stats.game_active:
