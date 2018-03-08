@@ -90,7 +90,7 @@ def check_play_button(ai_settings, screen,ship, aliens,bullets,stats, play_butto
 		# Hide the mouse cursor.
  		pygame.mouse.set_visible(False)
 		
-def update_bullets(ai_settings, screen, ship, aliens, bullets):
+def update_bullets(ai_settings, screen, ship, aliens, bullets,stats,sb):
 	"""Update position of bullets and get rid of old bullets."""
 	# Update bullet positions.
 	bullets.update()
@@ -98,12 +98,16 @@ def update_bullets(ai_settings, screen, ship, aliens, bullets):
 	for bullet in bullets.copy():
 		if bullet.rect.bottom <= 0:
 			bullets.remove(bullet)
-	check_bullet_alien_collisions(ai_settings, screen, ship, aliens, bullets)
+	check_bullet_alien_collisions(ai_settings, screen, ship, aliens, bullets,stats,sb)
 	
-def check_bullet_alien_collisions(ai_settings, screen, ship, aliens, bullets):
+def check_bullet_alien_collisions(ai_settings, screen, ship, aliens, bullets,stats,sb):
 	# Check for any bullets that have hit aliens.
 	# If so, get rid of the bullet and the alien.
 	collisions = pygame.sprite.groupcollide(bullets, aliens, True, True)
+	if collisions:
+		stats.score += ai_settings.alien_points
+		sb.prep_score()
+
 	if len(aliens) == 0:
 		# Destroy existing bullets, speed up game, and create new fleet.
 		bullets.empty()
