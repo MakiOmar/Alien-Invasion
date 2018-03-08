@@ -50,24 +50,35 @@ def check_keyup_event(settings, event):
 		if event.key == pygame.K_LEFT:
 			settings.move_left = False
 
-def check_events(settings, screen, ship, bullets, stats, play_button):
+def check_events(settings, screen, ship,aliens, bullets, stats, play_button):
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
 			sys.exit()
 			return
 		elif event.type == pygame.MOUSEBUTTONDOWN:
 			mouse_x, mouse_y = pygame.mouse.get_pos()
-			check_play_button(stats, play_button, mouse_x, mouse_y)
+			check_play_button(settings, screen,ship, aliens,bullets,stats, play_button, mouse_x, mouse_y)
 
 		check_keydown_event(settings, event, screen, ship, bullets)
 
 		check_keyup_event(settings, event)
 
-def check_play_button(stats, play_button, mouse_x, mouse_y):
+def check_play_button(ai_settings, screen,ship, aliens,bullets,stats, play_button, mouse_x, mouse_y):
 	"""Start a new game when the player clicks Play."""
 	if play_button.rect.collidepoint(mouse_x, mouse_y):
+		# Reset the game statistics.
+		stats.reset_stats()
 		stats.game_active = True
-			
+
+		# Empty the list of aliens and bullets.
+		aliens.empty()
+		bullets.empty()
+
+		ai_settings.main_sound(stats)
+		# Create a new fleet and center the ship.
+		create_fleet(ai_settings, screen, ship, aliens)
+		ship.center_ship()
+		
 def update_bullets(ai_settings, screen, ship, aliens, bullets):
 	"""Update position of bullets and get rid of old bullets."""
 	# Update bullet positions.

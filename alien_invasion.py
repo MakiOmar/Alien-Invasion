@@ -37,16 +37,12 @@ def run_game():
 
 	# Create the fleet of aliens.
 	GF.create_fleet(ai_stngs, screen, ai_ship, aliens)
-
-
-	ai_stngs.main_sound(stats)
 	while True:
-		GF.check_events(ai_stngs, screen, ai_ship, bullets,stats, play_button)
+		GF.check_events(ai_stngs, screen, ai_ship,aliens, bullets,stats, play_button)
 		if stats.game_active:
 			#ship movement
 			ai_ship.update()
 
-			 
 			GF.update_bullets(ai_stngs, screen, ai_ship, aliens, bullets)
 
 			GF.update_aliens(ai_stngs, aliens, ai_ship, stats, screen, bullets)
