@@ -60,9 +60,9 @@ class Settings(object):
 		pygame.display.set_caption(ai_caption)
 
 	def main_sound(self, stats):
-			voice = pygame.mixer.Channel(0)
-			sound = pygame.mixer.Sound("sounds/game_music.wav")
-			voice.play(sound)
+		voice = pygame.mixer.Channel(0)
+		sound = pygame.mixer.Sound("sounds/game_music.wav")
+		return voice.play(sound)
 
  	def bullet_sound(self, stats):
  		if stats.game_active:
