@@ -4,7 +4,7 @@ from bullet import Bullet
 from alien import Alien
 from time import sleep
 from pygame.sprite import Group
-def update_screen(ai_stngs,screen, ai_ship, bullets, aliens,stats, play_button):
+def update_screen(ai_stngs,screen, ai_ship, bullets, aliens,stats, play_button,sb):
 	# Redraw the screen during each pass through the loop.
 	screen.fill(ai_stngs.bg_color)
 
@@ -13,6 +13,10 @@ def update_screen(ai_stngs,screen, ai_ship, bullets, aliens,stats, play_button):
 
 	#draw Alien
 	aliens.draw(screen)
+
+	# Draw the score information.
+	sb.show_score()
+
 
 	# Redraw all bullets behind ship and aliens.
 	for bullet in bullets.sprites():
@@ -69,7 +73,7 @@ def check_play_button(ai_settings, screen,ship, aliens,bullets,stats, play_butto
 	if button_clicked and  not stats.game_active:
 		# Reset the game settings.
 		ai_settings.initialize_dynamic_settings()
-		
+
 		# Reset the game statistics.
 		stats.reset_stats()
 		stats.game_active = True
