@@ -39,8 +39,8 @@ class Scoreboard():
 		self.score_rect.top = 20
 
 		#Store rectanle area
-		self.surface_rect = pygame.Rect(0,0,120,50)
-		self.surface_rect.center = self.score_rect.center
+		self.score_rect_bg = pygame.Rect(0,0,120,50)
+		self.score_rect_bg.center = self.score_rect.center
 
 	def prep_high_score(self):
 		"""Turn the high score into a rendered image."""
@@ -64,7 +64,7 @@ class Scoreboard():
 
 	def show_score(self):
 		"""Draw scores and ships to the screen."""
-		self.screen.fill((0, 255, 0), self.surface_rect)
+		self.screen.fill((0, 255, 0), self.score_rect_bg)
 		self.screen.blit(self.score_image, self.score_rect)
 		self.screen.blit(self.high_score_image, self.high_score_rect)
 		self.screen.blit(self.level_image, self.level_rect)
