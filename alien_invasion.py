@@ -7,6 +7,7 @@ from game_stats import GameStats
 import sounds
 from button import Button
 from scoreboard import Scoreboard
+from pygame import time
 def run_game():
 
 	#@ai_stngs : Alien Invaders Settings
@@ -41,6 +42,8 @@ def run_game():
 	# Create the fleet of aliens.
 	GF.create_fleet(ai_stngs, screen, ai_ship, aliens)
 
+	clock = pygame.time.Clock()
+
 	while True:
 		GF.check_events(ai_stngs, screen, ai_ship,aliens, bullets,stats, play_button,sb)
 		if stats.game_active:
@@ -56,5 +59,6 @@ def run_game():
 		# Make the most recently drawn screen visible.
 		pygame.display.flip()
 		
+		clock.tick(150)
 
 run_game()
