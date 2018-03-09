@@ -22,7 +22,7 @@ class Settings(object):
  		self.alien_speed_factor = 1
 
  		#Fleet speed
- 		self.fleet_drop_speed = 100
+ 		self.fleet_drop_speed = 10
  		
 		# fleet_direction of 1 represents right; -1 represents left.
 		self.fleet_direction = 1
@@ -53,7 +53,7 @@ class Settings(object):
 		return icon
 
 	def ai_screen_size(self):
-		screen = pygame.display.set_mode((self.scrn_wdth, self.scrn_hght), pygame.RESIZABLE)
+		screen = pygame.display.set_mode((self.scrn_wdth, self.scrn_hght))#For resizable screen add  pygame.RESIZABLE parameter to set_mode
 		return screen
 
 	def ai_caption(self, ai_caption):

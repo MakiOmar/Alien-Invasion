@@ -12,7 +12,14 @@ class Scoreboard():
 
 		# Font settings for scoring information.
 		self.text_color = (30, 30, 30)
+		self.bg_color = (0, 255, 0)
+		self.width, self.height = 200, 50
 		self.font = pygame.font.SysFont(None, 48)
+
+		# Build the button's rect object and center it.
+		self.rect = pygame.Rect(0, 0, self.width, self.height)
+		self.rect.center = self.screen_rect.center
+		
 		# Prepare the initial score image.
 		self.prep_score()
 		self.prep_high_score()
@@ -24,7 +31,7 @@ class Scoreboard():
 		rounded_score = int(round(self.stats.score, -1))
 		score_str = "{:,}".format(rounded_score)
 
-		self.score_image = self.font.render(score_str, True, self.text_color, self.ai_settings.bg_color)
+		self.score_image = self.font.render(score_str, True, self.text_color)
 
 		# Display the score at the top right of the screen.
 		self.score_rect = self.score_image.get_rect()
