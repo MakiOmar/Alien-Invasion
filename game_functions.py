@@ -25,6 +25,7 @@ def update_screen(ai_stngs,screen, ai_ship, bullets, aliens,stats, play_button,s
 	# Draw the play button if the game is inactive.
 	if not stats.game_active:
 		play_button.draw_button()
+		stats.score = 0
 
 def fire_bullets(settings, screen, ship, bullets,stats):
 	if len(bullets) < settings.bullets_allowed:
@@ -94,6 +95,7 @@ def check_play_button(ai_settings, screen,ship, aliens,bullets,stats, play_butto
 		create_fleet(ai_settings, screen, ship, aliens)
 		ship.center_ship()
 
+
 		# Hide the mouse cursor.
  		pygame.mouse.set_visible(False)
 
@@ -117,7 +119,7 @@ def check_bullet_alien_collisions(ai_settings, screen, ship, aliens, bullets,sta
 			stats.score += ai_settings.alien_points * len(aliens)
 			stats.score += ai_settings.alien_points
 			sb.prep_score()
-			check_high_score(stats, sb)
+		check_high_score(stats, sb)
 
 	if len(aliens) == 0:
 		# If the entire fleet is destroyed, start a new level.
@@ -228,4 +230,4 @@ def check_high_score(stats, sb):
 	"""Check to see if there's a new high score."""
 	if stats.score > stats.high_score:
 		stats.high_score = stats.score
-		sb.prep_high_score()
+	sb.prep_high_score()
