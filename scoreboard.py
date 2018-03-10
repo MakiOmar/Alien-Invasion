@@ -36,11 +36,11 @@ class Scoreboard():
 
 		# Display the score at the top right of the screen.
 		self.score_rect = self.score_image.get_rect()
-		self.score_rect.right = self.screen_rect.right - 90
+		self.score_rect.right = self.screen_rect.right - 120
 		self.score_rect.top = 20
 
 		#Store rectanle area
-		self.score_rect_bg = pygame.Rect(0,0,120,50)
+		self.score_rect_bg = pygame.Rect(0,0,200,60)
 		self.score_rect_bg.center = self.score_rect.center
 
 		self.score_heading = self.font.render("Score", True, (20, 80, 162))
@@ -61,7 +61,7 @@ class Scoreboard():
 		self.high_score_rect.top = self.score_rect.top
 
 		#Store rectanle area
-		self.hi_score_rect_bg = pygame.Rect(0,0,120,50)
+		self.hi_score_rect_bg = pygame.Rect(0,0,200,60)
 		self.hi_score_rect_bg.center = self.high_score_rect.center
 
 
@@ -89,8 +89,8 @@ class Scoreboard():
 		self.screen.fill((0, 255, 0), self.score_rect_bg)
 		self.screen.fill((0, 255, 0), self.hi_score_rect_bg)
 		
-		self.filled_circle = pygame.gfxdraw.filled_circle(self.screen,self.level_rect.x+10, self.level_rect.y+15,20, (20, 80, 162) )
-		self.empty_circle = pygame.gfxdraw.aacircle(self.screen,self.level_rect.x+10, self.level_rect.y+15,20, (20, 80, 162) )
+		self.filled_circle = pygame.gfxdraw.filled_circle(self.screen,self.level_rect.x+10, self.level_rect.y+15,30, (20, 80, 162) )
+		self.empty_circle = pygame.gfxdraw.aacircle(self.screen,self.level_rect.x+10, self.level_rect.y+15,30, (20, 80, 162) )
 		
 		
 		self.screen.blit(self.score_image, self.score_rect)
