@@ -2,6 +2,7 @@ import pygame.font
 from pygame.sprite import Group
 from ship import Ship
 import pygame.gfxdraw
+import json
 class Scoreboard():
 	"""A class to report scoring information."""
 	def __init__(self, ai_settings, screen, stats):
@@ -111,3 +112,17 @@ class Scoreboard():
 			ship.rect.x = 10 + ship_number * ship.rect.width
 			ship.rect.y = 10
 			self.ships.add(ship)
+
+	def update_high_score(self,stats, ai_settings):
+		self.score_file = ai_settings.score_file
+
+		with open(self.score_file) as f_obj:
+			highScore = json.load(f_obj)
+
+		with open(self.score_file,'w') as f_obj:
+			if highScore[0] < self.stats.high_score:
+				highScore = [self.stats.high_score]
+			json.dump(highScore, f_obj)
+
+
+

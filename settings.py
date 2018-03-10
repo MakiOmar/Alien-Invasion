@@ -48,6 +48,9 @@ class Settings(object):
  		# How quickly the alien point values increase
  		self.score_scale = 1.5
 
+ 		#save highscore
+ 		self.score_file = 'score.json'
+
 	def ai_icon (self, ico):
 		icon = pygame.display.set_icon(pygame.image.load(ico))
 		return icon

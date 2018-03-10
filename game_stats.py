@@ -1,3 +1,4 @@
+import json
 class GameStats():
 	"""Track statistics for Alien Invasion."""
 	def __init__(self, ai_settings):
@@ -8,7 +9,15 @@ class GameStats():
 		self.score = 0
 
 		# High score should never be reset.
-		self.high_score = 0
+		try:
+	 		with open(self.ai_settings.score_file) as f_obj:
+	 			high_score = json.load(f_obj)
+				self.high_score = high_score[0]
+
+		except:
+			self.high_score = 0
+			with open(self.ai_settings.score_file, "w+") as f_obj:
+				json.dump([self.high_score], f_obj)
 
 		self.level = 1
 		
