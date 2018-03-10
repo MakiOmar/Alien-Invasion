@@ -1,6 +1,7 @@
 import pygame.font
 from pygame.sprite import Group
 from ship import Ship
+import pygame.gfxdraw
 class Scoreboard():
 	"""A class to report scoring information."""
 	def __init__(self, ai_settings, screen, stats):
@@ -64,12 +65,17 @@ class Scoreboard():
 		# Position the level below the score.
 		self.level_rect = self.level_image.get_rect()
 		self.level_rect.right = self.score_rect.right
-		self.level_rect.top = self.score_rect.bottom + 10
+		self.level_rect.top = self.score_rect.bottom + 30
 
 	def show_score(self):
 		"""Draw scores and ships to the screen."""
 		self.screen.fill((0, 255, 0), self.score_rect_bg)
 		self.screen.fill((0, 255, 0), self.hi_score_rect_bg)
+		
+		self.filled_circle = pygame.gfxdraw.filled_circle(self.screen,self.level_rect.x+10, self.level_rect.y+15,20, (20, 80, 162) )
+		self.empty_circle = pygame.gfxdraw.aacircle(self.screen,self.level_rect.x+10, self.level_rect.y+15,20, (20, 80, 162) )
+		
+		
 		self.screen.blit(self.score_image, self.score_rect)
 		self.screen.blit(self.high_score_image, self.high_score_rect)
 		self.screen.blit(self.level_image, self.level_rect)
