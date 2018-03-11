@@ -1,10 +1,7 @@
-import pygame
-import settings
-import ship
+import pygame,settings,ship,sounds
 import game_functions as GF
 from pygame.sprite import Group
 from game_stats import GameStats
-import sounds
 from button import Button
 from scoreboard import Scoreboard
 from pygame import time
@@ -46,13 +43,14 @@ def run_game():
 
 	while True:
 		GF.check_events(ai_stngs, screen, ai_ship,aliens, bullets,stats, play_button,sb)
-		if stats.game_active:
-			#ship movement
-			ai_ship.update()
+		if not stats.game_paused:
+			if stats.game_active:
+				#ship movement
+				ai_ship.update()
 
-			GF.update_bullets(ai_stngs, screen, ai_ship, aliens, bullets,stats,sb)
+				GF.update_bullets(ai_stngs, screen, ai_ship, aliens, bullets,stats,sb)
 
-			GF.update_aliens(ai_stngs, aliens, ai_ship, stats, screen, bullets,sb)
+				GF.update_aliens(ai_stngs, aliens, ai_ship, stats, screen, bullets,sb)
 
 		GF.update_screen(ai_stngs, screen, ai_ship, bullets, aliens,stats, play_button,sb)
 		

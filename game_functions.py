@@ -46,6 +46,17 @@ def check_keydown_event(settings, event, screen, ship, bullets,stats):
 		elif  event.key == pygame.K_q:
 			sys.exit()
 			return
+		elif event.key == pygame.K_ESCAPE:
+			if not stats.game_paused:
+				stats.game_paused = True
+				pygame.mixer.pause()
+				pygame.mouse.set_visible(True)
+			else:
+				stats.game_paused = False
+				pygame.mixer.unpause()
+				pygame.mouse.set_visible(False)
+
+			print stats.game_paused
 
 def check_keyup_event(settings, event):
 	if event.type == pygame.KEYUP:
@@ -67,6 +78,7 @@ def check_events(settings, screen, ship,aliens, bullets, stats, play_button,sb):
 		check_keydown_event(settings, event, screen, ship, bullets,stats)
 
 		check_keyup_event(settings, event)
+
 
 def check_play_button(ai_settings, screen,ship, aliens,bullets,stats, play_button, mouse_x, mouse_y,sb):
 	"""Start a new game when the player clicks Play."""
