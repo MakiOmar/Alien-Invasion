@@ -2,7 +2,7 @@
 Just for practicing python pygame
 
 ## How to use:
-
+- To start the game just load alien_invasion.py file from sublime text cntrl+b or cntrl+shift+b then python
 - To shoot press space
 - To pause press escape
 
