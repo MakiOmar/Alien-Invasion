@@ -1,7 +1,7 @@
 # Alien-Invasion
 Just for practicing python pygame
 
-##Requirements
+## Requirements
 - Python 2.7
 - pygame package(Download : http://pygame.org/ftp/pygame-1.9.1.win32-py2.7.msi)
 
